@@ -1,0 +1,66 @@
+#Zadanie 1
+#-----------------------
+class Osoba:
+
+    def __init__(self, name=None, surname=None, nrTel=None):
+
+        self.name = name
+        self.surname = surname
+        self.nrTel = nrTel
+
+    def wypiszOsobe(self):
+        if hasattr(self,"name") or hasattr(self, "surname") or hasattr(self, "nrTel"):
+            print("\tInformation about person:")
+            if hasattr(self,"name"):
+                print(f"\t\tName: {self.name}")
+            if hasattr(self, "surname"):
+                print(f"\t\tSurname: {self.surname}")
+            if hasattr(self, "nrTel"):
+                print(f"\t\tPhone number: {self.nrTel}")
+            print()
+        else:
+            print("\tNo info about person.")
+
+
+o = Osoba("Karol", nrTel="666 420 555")
+o.wypiszOsobe()
+o2 = Osoba("Dawid", "Kuzniak")
+o2.wypiszOsobe()
+del o2.name
+o2.wypiszOsobe()
+del o.nrTel
+o.wypiszOsobe()
+del o.name
+o.wypiszOsobe()
+
+#Zadanie 2
+#-------------------------------------------
+class Ciag:
+    numbers = []
+
+    def add(self, number):
+        self.numbers.append(number)
+
+
+class Ciag2(Ciag):
+    numbers1 = []
+
+    def add(self, number):
+        self.numbers1.append(number)
+
+
+c = Ciag()
+c2 = Ciag2()
+
+
+c.add(2)
+print(c.numbers)
+print(c2.numbers1)
+print()
+c2.add(5)
+print(c.numbers)
+print(c2.numbers1)
+c.numbers.extend(c2.numbers1)
+print(c.numbers)
+print()
+#-----------------------------
